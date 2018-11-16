@@ -1,0 +1,12 @@
+<div *ngIf="orderList;else inv">
+  <legend>Mes commandes :</legend>
+  <div *ngFor="let order of orderList">
+    COMMANDE n°{{order.id}}<br>
+    passée le : {{order.orderDate | date}}<br>
+    total : {{order.ttcPrice}} EUR
+    <hr>
+  </div>  
+</div>
+<ng-template #inv>
+  <legend>Vous n'avez pas encore de commandes</legend>
+</ng-template>

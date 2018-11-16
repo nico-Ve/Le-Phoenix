@@ -1,0 +1,14 @@
+<div class="ml-2" *ngIf="!user;else inv">
+  <a [routerLink]="[ '/signup' ]">créer un compte</a> /
+  <a [routerLink]="[ '/signin'  ]">connexion</a> <br>
+  <a [routerLink]="[ '/cart' ]">panier({{cartSize}})</a>
+</div>
+
+<ng-template #inv>
+  <div class="ml-2">
+    Bienvenue {{ user.nickname }}
+    <a [routerLink]="[ '/account' ]">mon compte</a> /
+    <a [routerLink]="[ '/signin' ]" (click)="onClick()">deconnexion</a> <br>
+    <a [routerLink]="[ '/cart' ]">panier({{cartSize}})</a>
+  </div>
+</ng-template>

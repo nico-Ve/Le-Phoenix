@@ -1,0 +1,10 @@
+<div *ngIf="addressList">
+    <div *ngFor="let a of addressList">
+        {{a.addressline}}
+        {{a.city}}
+        {{a.country}}
+        <ng-container *ngIf="a.def">[adresse par défaut]</ng-container>
+        <hr>
+    </div>
+</div>
+<a [routerLink]="[ '/account/addresses/new' ]">ajouter une adresse</a>

@@ -1,0 +1,42 @@
+<div>
+  <h1>Adresse de livraison :</h1>
+  <div *ngIf="address;else inv">
+      {{address.addressline}}
+      {{address.zip}}
+      {{address.city}}
+      {{address.country}}
+      <a href="">changer d'adresse</a>
+  </div>
+
+  <ng-template #inv>
+    <a href="#">sélectionnez une adresse de livraison</a>
+  </ng-template>
+</div>
+
+
+<table class="table table-hover" *ngIf="order">
+  <thead>
+    <tr>
+      <th scope="col">Article</th>
+      <th scope="col">Quantité</th>
+      <th scope="col">Prix/unité(EUR)</th>
+      <th scope="col">Prix/total(EUR)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="table-light" *ngFor="let line of order.orderLines">
+      <th scope="row">{{line.book.isbn}}</th>
+      <td>{{line.quantity}}</td>
+      <td>{{line.unitPrice}}</td>
+      <td>{{line.totalPrice}}</td>
+    </tr>
+    <tr class="table-light">
+      <!-- <th scope="row"></th>
+      <td></td>
+      <td></td> -->
+      <td>sous-total(EUR) : {{order.htPrice}}<br>TVA(%) : {{order.vat}}<br>TOTAL(EUR) : {{order.ttcPrice}}</td>
+    </tr>
+  </tbody>
+</table>
+<ngx-paypal [config]="payPalConfig"></ngx-paypal>
+<button class="btn btn-primary font-italic" (click)="onClick()" [disabled]="!address">PhoenixPal</button>

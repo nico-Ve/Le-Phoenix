@@ -1,0 +1,25 @@
+<div *ngIf="cartList;else inv">
+  <div class="mb-4 mt-4">
+    <div class="mb-2 list-group-item list-group-item-action flex-column align-items-start" *ngFor="let key of cartKeys">
+      <div class="d-flex w-100 justify-content-between">
+        <img class="i" src="assets/images/{{cartList[key].book.imgUrl}}" alt="couverture">
+        <div>
+          {{cartList[key].book.isbn}} <br>
+          {{cartList[key].book.title}} <br>
+          <p class="text-primary">{{cartList[key].book.price}} EUR</p>
+          quantité : {{cartList[key].quantity}}
+        </div>
+        <div>          
+          <button class="btn btn-primary" (click)="addClick(cartList[key].book)">+</button>
+          <button class="btn btn-primary" *ngIf="cartList[key].quantity > 1" (click)="subClick(cartList[key].book)">-</button>
+          <button class="btn btn-primary" (click)="removeClick(cartList[key].book)">supprimer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-primary" (click)=deleteClick()>vider le panier</button>
+  <button class="btn btn-primary" (click)=onClick()>passer la commande</button>
+</div>
+<ng-template #inv>
+  <legend>Vous n'avez pas encore d'articles dans le panier</legend>
+</ng-template>

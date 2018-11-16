@@ -1,0 +1,48 @@
+<form [formGroup]="addressForm" (ngSubmit)="onSubmit()">
+  <fieldset>
+    <legend>Créez une adresse</legend>
+    <div class="form-group">
+      <label for="input1">Libellé</label>
+      <input class="form-control" id="input1" type="text" formControlName="name" placeholder="libellé">
+    </div>
+    <div class="form-group">
+      <label for="input2">Adresse*</label>
+      <input class="form-control" id="input2" type="text" formControlName="addressline" placeholder="adresse" required>
+    </div>
+    <div class="form-group">
+      <label for="input3">Complément</label>
+      <input class="form-control" id="input3" type="text" formControlName="complement" placeholder="complément">
+    </div>
+    <div class="form-group">
+      <label for="input4">Code postal*</label>
+      <input class="form-control" id="input4" type="text" formControlName="zip" placeholder="code" required>
+    </div>
+    <div class="form-group">
+      <label for="input5">Ville*</label>
+      <input class="form-control" id="input5" type="text" formControlName="city" placeholder="ville" required>
+    </div>
+    <div class="form-group">
+      <label for="input6">État/Province/Département</label>
+      <input class="form-control" id="input6" type="text" formControlName="estate" placeholder="departement">
+    </div>
+    <div class="form-group">
+      <label for="input7">Pays*</label>
+      <input class="form-control" id="input7" type="text" formControlName="country" placeholder="pays" required>
+    </div>
+    <div class="form-group">
+      <label for="input8">Nom</label>
+      <input class="form-control" id="input8" type="text" formControlName="oname" placeholder="Nom">
+    </div>
+    <div class="form-group">
+      <label for="input9">Prénom</label>
+      <input class="form-control" id="input9" type="tel" formControlName="ofirstname" placeholder="Prénom">
+    </div>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input class="form-check-input" type="checkbox" formControlName="def" value="">
+        Faire de cette adresse mon addresse par défaut
+      </label>
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled]="!addressForm.valid">Valider</button>
+  </fieldset>
+</form>

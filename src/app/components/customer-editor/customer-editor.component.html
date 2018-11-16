@@ -1,0 +1,44 @@
+<div>  
+  <legend >{{legend}}</legend> 
+    <form class="w-100" [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+      <div class="w-100 d-flex ">
+        <div>
+        <div class="form-group">
+          <label for="input1">Email*</label>
+          <input class="form-control" id="input1" type="email" formControlName="mail" placeholder="email" required
+            email>
+        </div>
+        <div class="form-group">
+          <label for="input2">Pseudonyme*</label>
+          <input class="form-control" id="input2" type="text" formControlName="nickname" placeholder="pseudonyme"
+            required>
+        </div>
+        <div class="form-group" *ngIf="!user">
+          <label for="input3">Mot de passe*</label>
+          <input class="form-control" id="input3" type="password" formControlName="password" placeholder="mot de passe"
+            required>
+        </div>
+        <div class="form-group" *ngIf="!user">
+          <label for="input4">Confirmez le mot de passe*</label>
+          <input class="form-control" id="input4" type="password" formControlName="confirmation" placeholder="confirmez"
+            required>
+        </div>
+      </div>
+      <div>
+        <div class="form-group">
+          <label for="input5">Prénom</label>
+          <input class="form-control" id="input5" type="text" formControlName="firstname" placeholder="Prénom">
+        </div>
+        <div class="form-group">
+          <label for="input6">Nom</label>
+          <input class="form-control" id="input6" type="text" formControlName="lastname" placeholder="Nom">
+        </div>
+        <div class="form-group">
+          <label for="input7">Téléphone</label>
+          <input class="form-control" id="input7" type="tel" formControlName="tel" placeholder="téléphone">
+        </div>
+      </div>
+      </div>      
+      <button class="btn btn-primary" type="submit" [disabled]="customerForm.pristine || customerForm.invalid">{{submit}}</button>
+    </form>    
+</div>

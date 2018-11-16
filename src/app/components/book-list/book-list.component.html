@@ -1,0 +1,22 @@
+<div class="list-group" *ngIf="bookList">
+  <div *ngFor="let b of bookList">
+    <div class="list-group-item list-group-item-action flex-column align-items-start">
+      <div class="d-flex w-100 justify-content-between">
+        <img class="img-fluid" src="assets/images/{{b.imgUrl}}" alt="couverture">
+        <div>
+          <h5 class="mb-1">{{b.title}}</h5>
+          <p class="mb-1">{{b.editor}} <br> {{b.editionYear | date}}<br></p>
+          <small>isbn : {{b.isbn}}</small>
+        </div>
+        <div>
+          <p class="text-primary">{{b.price}} EUR</p>
+          <p class="text-success" *ngIf="b.stock >0;else inv">en stock</p>
+          <ng-template #inv>
+            <p class="text-danger">en rupture</p>
+          </ng-template>
+        </div>
+        <app-cart-add *ngIf="b.stock >0" [book]="b"></app-cart-add>
+      </div>
+    </div>
+  </div>
+</div>

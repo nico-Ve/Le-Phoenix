@@ -1,0 +1,13 @@
+
+<div *ngIf="!isContained; else inv">
+  <form [formGroup]="cartForm" (ngSubmit)="onSubmit()">
+  <input type="hidden" formControlName="book">
+  <input class="form-control" type="number" formControlName="quantity">
+  <button class="btn btn-primary" type="submit">ajouter</button>
+</form>
+</div>
+<ng-template #inv>
+  <p class="btn btn-success disabled">
+    Dans le panier
+  </p>
+</ng-template>
