@@ -1,10 +1,12 @@
-
 <div *ngIf="!isContained; else inv">
-  <form [formGroup]="cartForm" (ngSubmit)="onSubmit()">
-  <input type="hidden" formControlName="book">
-  <input class="form-control" type="number" formControlName="quantity">
-  <button class="btn btn-primary" type="submit">ajouter</button>
-</form>
+  <div>
+    <div class="form-control d-inline-block w-30">{{quantity}}</div>
+    <div class="d-inline-block">
+      <button class="h-50 btn btn-outline-primary" (click)="add()">▲</button>
+      <button class="h-50 btn btn-outline-primary" (click)="substract()">▼</button>
+    </div>
+  </div>
+  <button class="btn btn-primary" (click)="send()">ajouter</button>
 </div>
 <ng-template #inv>
   <p class="btn btn-success disabled">
