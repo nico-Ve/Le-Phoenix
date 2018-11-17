@@ -1,12 +1,13 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <a class="navbar-brand" [routerLink]="'signup'">Accueil</a>
-  <app-search-bar></app-search-bar>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01"
+  
+  <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01"
     aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarColor01">
+  <div id="navbarColor01" class="navbar-collapse collapse" aria-expanded="false" style="height: 0px;">
+    <app-search-bar></app-search-bar>
     <app-category-selector></app-category-selector>    
   </div>
 </nav>

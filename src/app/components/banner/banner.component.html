@@ -1,7 +1,9 @@
 <div class="mb-4 flex-column">
-  <div class="bg-primary d-flex justify-content-between w-75">    
-      <img id="img" src="assets/images/logo.png" alt="logo">    
-      <h1 class="display-4 mr-5 text-white" *ngIf="lib">{{lib[0].name}}</h1>        
+  <div class="bg-primary d-flex justify-content-between w-75 align-items-center">    
+      <div class="w-50">
+        <img class="img-fluid w-25 ml-2" src="assets/images/logo.png" alt="logo"> 
+      </div>         
+      <p class="mr-5 text-white" *ngIf="lib">{{lib[0].name}}</p>        
   </div>
   <app-account-bar></app-account-bar><br>  
 </div>

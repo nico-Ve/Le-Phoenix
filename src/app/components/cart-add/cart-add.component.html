@@ -1,15 +1,13 @@
-<div *ngIf="!isContained; else inv">
+<div class="d-flex d-lg-block" *ngIf="!isContained; else inv">
+  <div class="border border-secondary rounded">{{quantity}}</div>
   <div>
-    <div class="form-control d-inline-block w-30">{{quantity}}</div>
-    <div class="d-inline-block">
-      <button class="h-50 btn btn-outline-primary" (click)="add()">▲</button>
-      <button class="h-50 btn btn-outline-primary" (click)="substract()">▼</button>
-    </div>
+    <div class="btn btn-outline-primary" (click)="add()">▲</div>
+    <div class="btn btn-outline-primary" (click)="substract()">▼</div>
   </div>
-  <button class="btn btn-primary" (click)="send()">ajouter</button>
+  <div class="btn btn-primary" (click)="send()">ajouter</div>
 </div>
 <ng-template #inv>
-  <p class="btn btn-success disabled">
+  <div class="btn btn-success">
     Dans le panier
-  </p>
+  </div>
 </ng-template>

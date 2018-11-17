@@ -1,22 +1,27 @@
-<div class="container-fluid" *ngIf="bookList">
-  <div class="row" *ngFor="let b of bookList">
-    <div class="col">
-      <img class="img-fluid" src="assets/images/{{b.imgUrl}}" alt="couverture">
+<div class="list-group mt-1" *ngIf="bookList">
+  <div class="list-group-item d-lg-flex align-items-center" *ngFor="let b of bookList">
+    <div class="container-fluid">
+      <div class="row align-items-center">
+        <div class="col">
+          <img class="img-fluid" src="assets/images/{{b.imgUrl}}" alt="couverture">
+        </div>
+        <div class="col-8 text-center">
+          <h5 class="mb-1">{{b.title}}</h5>
+          <p class="mb-1">Editeur : {{b.editor}}</p>
+          <p class="mb-1">Sortie : {{b.editionYear | date}}</p>
+          <small>isbn : {{b.isbn}}</small>
+        </div>
+        <div class="col">
+          <p class="text-primary">{{b.price}} EUR</p>
+          <p class="text-success" *ngIf="b.stock >0;else inv">en stock</p>
+          <ng-template #inv>
+            <p class="text-danger">en rupture</p>
+          </ng-template>
+        </div>
+      </div>
     </div>
-    <div class="col-8">
-      <h5 class="mb-1">{{b.title}}</h5>
-      <p class="mb-1">{{b.editor}} <br> {{b.editionYear | date}}<br></p>
-      <small>isbn : {{b.isbn}}</small>
-    </div>
-    <div class="col">
-      <p class="text-primary">{{b.price}} EUR</p>
-      <p class="text-success" *ngIf="b.stock >0;else inv">en stock</p>
-      <ng-template #inv>
-        <p class="text-danger">en rupture</p>
-      </ng-template>
-    </div>
-    <div class="col">
-      <app-cart-add *ngIf="b.stock >0" [book]="b"></app-cart-add>
+    <div class="d-flex">
+      <app-cart-add class="m-auto" *ngIf="b.stock >0" [book]="b"></app-cart-add>
     </div>
   </div>
 </div>
