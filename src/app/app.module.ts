@@ -27,7 +27,6 @@ import { BannerComponent } from './components/banner/banner.component';
 import { CustomerLoggerComponent } from './components/customer-logger/customer-logger.component';
 import { AccountBarComponent } from './components/account-bar/account-bar.component';
 import { AccountMenuComponent } from './components/account-menu/account-menu.component';
-import { AccountDetailComponent } from './components/account-detail/account-detail.component';
 import { AccountOrderComponent } from './components/account-order/account-order.component';
 import { CartAddComponent } from './components/cart-add/cart-add.component';
 import { CartComponent } from './components/cart/cart.component';
@@ -64,7 +63,6 @@ const routes: Routes = [
     CustomerLoggerComponent,
     AccountBarComponent,
     AccountMenuComponent,
-    AccountDetailComponent,
     AccountOrderComponent,
     CartAddComponent,
     CartComponent,

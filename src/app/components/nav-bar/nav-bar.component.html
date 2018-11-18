@@ -1,13 +1,13 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" [routerLink]="'signup'">Accueil</a>
-  
-  <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01"
-    aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div id="navbarColor01" class="navbar-collapse collapse" aria-expanded="false" style="height: 0px;">
+  <div class="mr-lg-2 d-flex">
     <app-search-bar></app-search-bar>
-    <app-category-selector></app-category-selector>    
+    <button class="navbar-toggler collapsed ml-1" type="button" data-toggle="collapse" data-target="#navbarColor01"
+      aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+  <div id="navbarColor01" class="navbar-collapse collapse" aria-expanded="false" style="height: 0px;">
+    <a class="navbar-brand" [routerLink]="'signup'">Accueil</a>
+    <app-category-selector></app-category-selector>
   </div>
 </nav>

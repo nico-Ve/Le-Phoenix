@@ -1,8 +1,8 @@
-<div>  
-  <legend >{{legend}}</legend> 
-    <form class="w-100" [formGroup]="customerForm" (ngSubmit)="onSubmit()">
-      <div class="w-100 d-flex ">
-        <div>
+<div class="container-fluid px-0">
+  <div class="col-md-11 mx-auto">
+    <legend>{{legend}}</legend>
+    <form class="d-md-flex" [formGroup]="customerForm" (ngSubmit)="onSubmit()">      
+      <div class="col px-0 px-md-3">
         <div class="form-group">
           <label for="input1">Email*</label>
           <input class="form-control" id="input1" type="email" formControlName="mail" placeholder="email" required
@@ -24,7 +24,7 @@
             required>
         </div>
       </div>
-      <div>
+      <div class="col px-0 px-md-3">
         <div class="form-group">
           <label for="input5">Prénom</label>
           <input class="form-control" id="input5" type="text" formControlName="firstname" placeholder="Prénom">
@@ -37,8 +37,8 @@
           <label for="input7">Téléphone</label>
           <input class="form-control" id="input7" type="tel" formControlName="tel" placeholder="téléphone">
         </div>
-      </div>
-      </div>      
-      <button class="btn btn-primary" type="submit" [disabled]="customerForm.pristine || customerForm.invalid">{{submit}}</button>
-    </form>    
+        <button class="btn btn-primary" type="submit" [disabled]="customerForm.pristine || customerForm.invalid">{{submit}}</button>
+      </div>     
+    </form>
+  </div>
 </div>
