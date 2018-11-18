@@ -1,5 +1,5 @@
 <ul class="navbar-nav mr-auto" *ngIf="categoriesList">
   <li class="nav-item active" *ngFor="let c of categoriesList">
-    <a class="nav-link" [routerLink]="['/books', {id: c.id}]">{{c.name}} <span class="sr-only">(current)</span></a>
+    <a href="javascript:void(null);" class="nav-link" (click)="onClick(c.id)">{{c.name}} <span class="sr-only">(current)</span></a>
   </li>
 </ul>

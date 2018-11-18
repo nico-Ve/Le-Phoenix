@@ -89,7 +89,7 @@ const routes: Routes = [
     CartService,
     OrderService,
     AddressService,
-    SessionService
+    SessionService,
   ],
   bootstrap: [AppComponent]
 })

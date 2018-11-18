@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { BookService } from './../../services/book.service';
-import { RestService } from './../../services/rest.service';
-import { CartService } from './../../services/cart.service';
 
 @Component({
   selector: 'app-book-list',
@@ -12,29 +9,24 @@ import { CartService } from './../../services/cart.service';
 export class BookListComponent implements OnInit {
 
   bookList;
+  message: string;
 
   constructor(
-    private bs: BookService,
-    private route: ActivatedRoute) { }
+    private bs: BookService) { }
 
-  ngOnInit() {         
-    this.route.params.subscribe(p => {
-      if (p['id']){
-        this.sub(this.bs.getFromCategory(p['id']));
-      }  else if (p['term']){
-        this.sub(this.bs.getBySearch(p['term']));        
-      } else {
-        this.sub(this.bs.getAll());           
-      }      
-    });        
+  ngOnInit() {     
+    this.bs.bookList.subscribe(response => {
+      this.bookList = response;
+      this.validate();      
+    });
   }
 
-  sub(observable){
-    if(observable){
-      observable.subscribe(data => {
-        this.bookList = RestService.unwrap(data, 'books');
-      });
-    }    
+  private validate(){    
+    if(this.bookList.term && this.bookList.books.length == 0){
+        this.message = "aucun résultat pour '" + this.bookList.term +"'";
+    }
+    if(this.bookList.category && this.bookList.books.length == 0){
+      console.log('aucun livre pour cette catégorie');
+    }
   }
-
 }

@@ -1,5 +1,5 @@
-<div class="list-group mt-1" *ngIf="bookList">
-  <div class="list-group-item d-lg-flex align-items-center" *ngFor="let b of bookList">
+<div class="list-group mt-1" *ngIf="bookList.books && bookList.books.length > 0; else noBooks">
+  <div class="list-group-item d-lg-flex align-items-center" *ngFor="let b of bookList.books">
     <div class="container-fluid">
       <div class="row align-items-center">
         <div class="col">
@@ -25,3 +25,7 @@
     </div>
   </div>
 </div>
+
+<ng-template #noBooks>
+  {{message}}
+</ng-template> 

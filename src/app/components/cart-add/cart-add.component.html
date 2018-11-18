@@ -1,8 +1,8 @@
 <div class="d-flex d-lg-block" *ngIf="!isContained; else inv">
   <div class="border border-secondary rounded">{{quantity}}</div>
-  <div>
-    <div class="btn btn-outline-primary" (click)="add()">▲</div>
-    <div class="btn btn-outline-primary" (click)="substract()">▼</div>
+  <div class="d-flex">
+    <div class="btn btn-outline-primary mx-auto" (click)="add()">▲</div>
+    <div class="btn btn-outline-primary mx-auto" (click)="substract()">▼</div>
   </div>
   <div class="btn btn-primary" (click)="send()">ajouter</div>
 </div>
