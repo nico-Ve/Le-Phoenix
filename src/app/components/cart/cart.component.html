@@ -1,29 +1,40 @@
-<div class="list-group mt-1" *ngIf="cartList;else inv">
-  <div class="list-group-item d-lg-flex align-items-center" *ngFor="let key of cartKeys">
-    <div class="container-fluid">
-      <div class="row align-items-center">
-        <div class="col col-md-1">
-          <img class="img-fluid" src="assets/images/{{cartList[key].book.imgUrl}}" alt="couverture">
-        </div>
-        <div class="col-8 text-center">
-          {{cartList[key].book.title}} <br>
-          <p class="text-primary">prix : {{cartList[key].book.price}} EUR(HT)</p>
-          <div class="text-info">
+<div *ngIf="cartList;else inv">
+  <div class="list-group mt-1">
+    <div class="list-group-item d-lg-flex align-items-center" *ngFor="let key of cartKeys">
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          <div class="col col-md-1">
+            <img class="img-fluid" src="assets/images/{{cartList[key].book.imgUrl}}" alt="couverture">
+          </div>
+          <div class="col-8 text-center">
+            {{cartList[key].book.title}} <br>
+            <p class="text-primary">prix : {{cartList[key].book.price}} EUR(HT)</p>
+            <div class="text-info">
               quantité : {{cartList[key].quantity}}
               <button class="btn btn-outline-primary" (click)="addClick(cartList[key].book)">+</button>
               <button class="btn btn-outline-primary" *ngIf="cartList[key].quantity > 1" (click)="subClick(cartList[key].book)">-</button>
+            </div>
+
           </div>
-          
-        </div>
-        <div class="col d-flex d-md-block mt-2 mt-md-3">          
-          <button class="btn btn-primary mx-auto" (click)="removeClick(cartList[key].book)">supprimer</button>
+          <div class="col d-flex d-md-block mt-2 mt-md-3">
+            <button class="btn btn-primary mx-auto" (click)="removeClick(cartList[key].book)">supprimer</button>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <button class="btn btn-primary" (click)=deleteClick()>vider le panier</button>
-  <button class="btn btn-primary" (click)=onClick()>passer la commande</button>
+  <div class="col col-md-10 mx-auto">
+    <div>
+      <p class="text-primary text-center">Total(HT) : {{total}} EUR</p>
+    </div>
+    <div>
+      <button class="btn btn-primary w-100" (click)=onClick()>passer la commande</button>
+    </div>
+    <div>
+      <button class="btn btn-link" (click)=deleteClick()>vider le panier</button>
+    </div>    
+  </div>
 </div>
 <ng-template #inv>
-  <legend>Vous n'avez pas encore d'articles dans le panier</legend>
+  <p class="col mt-3"><span>Vous n'avez pas encore d'articles dans le panier</span></p>
 </ng-template>

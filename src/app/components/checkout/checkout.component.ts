@@ -12,7 +12,7 @@ export class CheckoutComponent implements OnInit {
 
   order;
   address;
-  public payPalConfig?: PayPalConfig;
+  payPalConfig: PayPalConfig;
 
   constructor(private os: OrderService, private as: AddressService) { }
 
