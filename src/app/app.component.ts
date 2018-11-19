@@ -8,8 +8,14 @@ import { environment } from './../environments/environment';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Le-Phoenix';
 
   constructor(private rs: RestService, private hc: HttpClient) { }
+
+  ngOnInit() {
+    if (environment.production) {
+      this.rs.setData("views", {}).subscribe();
+    }
+  }
 }
