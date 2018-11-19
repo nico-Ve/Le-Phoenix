@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  backend: 'http://192.168.0.50:5000/'
+  backend: 'https://library-end.herokuapp.com/'
 };
 
 /*

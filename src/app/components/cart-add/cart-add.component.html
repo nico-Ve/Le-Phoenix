@@ -7,7 +7,7 @@
   <div class="btn btn-primary" (click)="send()">ajouter</div>
 </div>
 <ng-template #inv>
-  <div class="btn btn-success">
+  <a [routerLink]="[ '/cart' ]" class="btn btn-success">
     Dans le panier
-  </div>
+  </a>
 </ng-template>

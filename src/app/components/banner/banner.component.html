@@ -1,9 +1,9 @@
 <div class="mb-0 mb-md-3 container-fluid px-0">
-  <div class="row align-items-center">
-    <div class="col-10 bg-primary d-flex align-items-center">
+  <div class="d-block d-md-flex align-items-center">
+    <div class="col-10 d-flex bg-primary align-items-center">
       <div class="ml-2 w-lg-25">
         <img class="img-fluid w-25" src="assets/images/logo.png" alt="logo">
-      </div>      
+      </div>
       <div class="mx-0">
         <h1 class="d-none d-xl-block mr-5 text-white" *ngIf="lib">{{lib[0].name}}</h1>
         <h2 class="d-none d-lg-block d-xl-none mr-5 text-white" *ngIf="lib">{{lib[0].name}}</h2>
@@ -12,7 +12,6 @@
         <h5 class="d-block d-sm-none text-white" *ngIf="lib">{{lib[0].name}}</h5>
       </div>
     </div>
-    <app-account-bar class="col"></app-account-bar><br>
+    <app-account-bar class="col-2 p-0"></app-account-bar><br>
   </div>
-  
 </div>
