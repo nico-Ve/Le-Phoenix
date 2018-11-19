@@ -6,7 +6,12 @@
 /out-tsc
 
 # dependencies
-/node_modules
+/node_modules/*
+!/node_modules/bootstrap
+/node_modules/bootstrap/*
+!/node_modules/bootstrap/dist
+/node_modules/bootstrap/dist/*
+!/node_modules/bootstrap/dist/css
 /nodeNo
 
 # IDEs and editors

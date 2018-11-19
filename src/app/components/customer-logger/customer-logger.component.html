@@ -1,6 +1,7 @@
-<div class="flex-column">
-  <legend>Connexion : </legend>
-  <div class="w-50 m-auto">
+<div class="container-fluid px-0">
+  <div class="col-md-6 mx-auto">
+    <legend>Connexion : </legend>
+    <small class="text-danger">{{message}}</small>
     <form [formGroup]="customerLogForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="input1">Adresse mail*</label>
@@ -13,7 +14,8 @@
           required>
       </div>
       <button class="btn btn-primary" type="submit" [disabled]="!customerLogForm.valid">Valider</button>
+      <a [routerLink]="[ '/signup'  ]">créer un compte</a>
     </form>
-    <small>{{message}}</small>
+    
   </div>
 </div>

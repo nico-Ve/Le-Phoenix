@@ -1,6 +1,6 @@
 {
-  "name": "Le-Phoenix",
-  "version": "0.5.1",
+  "name": "le-phoenix",
+  "version": "0.7.3",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

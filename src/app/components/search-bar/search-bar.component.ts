@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
-import { Router } from "@angular/router";
+import { BookService } from './../../services/book.service';
 
 @Component({
   selector: 'app-search-bar',
@@ -13,13 +13,15 @@ export class SearchBarComponent implements OnInit {
     search: ['', Validators.required]
   });
 
-  constructor(private fb: FormBuilder, private router: Router) { }
+  constructor(
+    private fb: FormBuilder,
+    private bs: BookService) { }
 
   ngOnInit() {
   }
 
-  onSubmit(){
-    this.router.navigate(['/books', {term: this.searchForm.value.search}]);   
+  onSubmit(){    
+    this.bs.getByTerm(this.searchForm.value.search);   
   }
 
 }
